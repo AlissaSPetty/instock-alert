@@ -1,0 +1,291 @@
+[
+  {
+    "type": "Ultra Premium Collection",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8975_290-85541_01.jpg",
+    "product_name": "Pokémon TCG: Scarlet & Violet-151 Ultra-Premium Collection",
+    "normalized_name": "Scarlet & Violet-151 Ultra-Premium Collection",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/290-85541/pokemon-tcg-scarlet-and-violet-151-ultra-premium-collection",
+    "price": 119.99
+  },
+  {
+    "type": "3 Booster Packs + Promo Card",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P4420PC_699-16893_01.jpg",
+    "product_name": "Pokémon TCG: Sun & Moon Series 3 Booster Packs, Coin & Tapu Koko Promo Card",
+    "normalized_name": "Sun & Moon Series 3 Booster Packs, Coin & Tapu Koko Promo Card",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/699-16893/pokemon-tcg-sun-and-moon-series-3-booster-packs-coin-and-tapu-koko-promo-card",
+    "price": 12.99
+  },
+  {
+    "type": "Tin",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8080_699-17234_01.jpg",
+    "product_name": "Pokémon TCG: Pokémon GO Tin (Pikachu)",
+    "normalized_name": "Pokémon GO Tin (Pikachu)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/699-17234/pokemon-tcg-pokemon-go-tin-pikachu",
+    "price": 19.99
+  },
+  {
+    "type": "Boosted Bundle",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9506_290-41352_01.jpg",
+    "product_name": "Pokémon TCG: Scarlet & Violet-Shrouded Fable Booster Bundle (6 Packs)",
+    "normalized_name": "Scarlet & Violet-Shrouded Fable Booster Bundle (6 Packs)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/290-41352/pokemon-tcg-scarlet-and-violet-shrouded-fable-booster-bundle-6-packs",
+    "price": 26.94
+  },
+  {
+    "type": "Booster Pack",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P6952_174-80812_01.jpg",
+    "product_name": "Pokémon TCG: Sword & Shield-Darkness Ablaze Booster Pack with Bonus Sword & Shield-Rebel Clash Booster Pack",
+    "normalized_name": "Sword & Shield-Darkness Ablaze Booster Pack with Bonus Sword & Shield-Rebel Clash Booster Pack",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/174-80812/pokemon-tcg-sword-and-shield-darkness-ablaze-booster-pack-with-bonus-sword-and-shield-rebel-clash-booster-pack",
+    "price": 3.99
+  },
+  {
+    "type": "Mini Tin",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8071_699-17143_01.jpg",
+    "product_name": "Pokémon TCG: Pokémon GO Mini Tin (Snorlax & Meltan)",
+    "normalized_name": "Pokémon GO Mini Tin (Snorlax & Meltan)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/699-17143/pokemon-tcg-pokemon-go-mini-tin-snorlax-and-meltan",
+    "price": 8.99
+  },
+  {
+    "type": "3 Booster Packs + Promo Card",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P3187PC_699-16779_01.jpg",
+    "product_name": "Pokémon TCG: Sun & Moon 3 Booster Packs, Coin & Togedemaru Promo Card",
+    "normalized_name": "Sun & Moon 3 Booster Packs, Coin & Togedemaru Promo Card",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/699-16779/pokemon-tcg-sun-and-moon-3-booster-packs-coin-and-togedemaru-promo-card",
+    "price": 12.99
+  },
+  {
+    "type": "Booster Pack + Promo Card",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P4865PC_699-16931_01.jpg",
+    "product_name": "Pokémon TCG: Sun & Moon-Team Up Booster Pack, Coin & Pikachu Promo Card",
+    "normalized_name": "Sun & Moon-Team Up Booster Pack, Coin & Pikachu Promo Card",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/699-16931/pokemon-tcg-sun-and-moon-team-up-booster-pack-coin-and-pikachu-promo-card",
+    "price": 4.99
+  },
+  {
+    "type": "Mini Tin",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10022/P10437_10-10031-133_01.jpg",
+    "product_name": "Pokémon TCG: Mega Heroes Mini Tin (Mega Lucario)",
+    "normalized_name": "Mega Heroes Mini Tin (Mega Lucario)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/10-10031-133/pokemon-tcg-mega-heroes-mini-tin-mega-lucario",
+    "price": 9.99
+  },
+  {
+    "type": "Special Collection",
+    "image": "https://www.pokemoncenter.com/product/699-17116/pokemon-tcg-greninja-v-union-special-collection",
+    "product_name": "Pokémon TCG: Greninja V-UNION Special Collection",
+    "normalized_name": "Greninja V-UNION Special Collection",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/699-17116/pokemon-tcg-greninja-v-union-special-collection",
+    "price": 29.99
+  },
+  {
+    "type": "Build & Battle Stadium",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8978_185-85372_01.jpg",
+    "product_name": "Pokémon TCG: Scarlet & Violet-Paldea Evolved Build & Battle Stadium",
+    "normalized_name": "Scarlet & Violet-Paldea Evolved Build & Battle Stadium",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/185-85372/pokemon-tcg-scarlet-and-violet-paldea-evolved-build-and-battle-stadium",
+    "price": 59.99
+  },
+  {
+    "type": "Ball Tin",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8072_699-17191_01.jpg",
+    "product_name": "Pokémon TCG: Pokémon GO Poké Ball Tin",
+    "normalized_name": "Pokémon GO Poké Ball Tin",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/699-17191/pokemon-tcg-pokemon-go-poke-ball-tin",
+    "price": 12.99
+  },
+  {
+    "type": "Premium Collection",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9540_699-85637_01.jpg",
+    "product_name": "Pokémon TCG: Scarlet & Violet-Paldean Fates Quaquaval ex Premium Collection",
+    "normalized_name": "Scarlet & Violet-Paldean Fates Quaquaval ex Premium Collection",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/699-85637/pokemon-tcg-scarlet-and-violet-paldean-fates-quaquaval-ex-premium-collection",
+    "price": 49.99
+  },
+  {
+    "type": "Booster Bundle",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9505_189-85398_01.jpg",
+    "product_name": "Pokémon TCG: Scarlet & Violet-Twilight Masquerade Booster Bundle (6 Packs)",
+    "normalized_name": "Scarlet & Violet-Twilight Masquerade Booster Bundle (6 Packs)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/189-85398/pokemon-tcg-scarlet-and-violet-twilight-masquerade-booster-bundle-6-packs",
+    "price": 26.94
+  },
+  {
+    "type": "Build & Battle Stadium",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8354_182-85072_01.jpg",
+    "product_name": "Pokémon TCG: Sword & Shield-Lost Origin Build & Battle Stadium",
+    "normalized_name": "Sword & Shield-Lost Origin Build & Battle Stadium",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/182-85072/pokemon-tcg-sword-and-shield-lost-origin-build-and-battle-stadium",
+    "price": 59.99
+  },
+  {
+    "type": "Pin Collection",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P4009PC_290-80342_01.jpg",
+    "product_name": "Pokémon TCG: Shining Legends Pin Collection (Zoroark)",
+    "normalized_name": "Shining Legends Pin Collection (Zoroark)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/290-80342/pokemon-tcg-shining-legends-pin-collection-zoroark",
+    "price": 15.99
+  },
+  {
+    "type": "V Heroes Tin",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P7656_699-17152_01.jpg",
+    "product_name": "Pokémon TCG: V Heroes Tin (Umbreon V)",
+    "normalized_name": "V Heroes Tin (Umbreon V)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/699-17152/pokemon-tcg-v-heroes-tin-umbreon-v",
+    "price": 19.99
+  },
+  {
+    "type": "Special Collection",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P7618_699-17155_01.jpg",
+    "product_name": "Pokémon TCG: Glaceon VSTAR Special Collection",
+    "normalized_name": "Glaceon VSTAR Special Collection",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/699-17155/pokemon-tcg-glaceon-vstar-special-collection",
+    "price": 29.99
+  },
+  {
+    "type": "Booster Pack",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P6685_175-80750_01.jpg",
+    "product_name": "Pokémon TCG: Sword & Shield-Vivid Voltage Sleeved Booster Pack (10 Cards)",
+    "normalized_name": "Sword & Shield-Vivid Voltage Sleeved Booster Pack (10 Cards)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/175-80750/pokemon-tcg-sword-and-shield-vivid-voltage-sleeved-booster-pack-10-cards",
+    "price": 3.99
+  },
+  {
+    "type": "Mini Tin",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10022/P10437_10-10031-135_01.jpg",
+    "product_name": "Pokémon TCG: Mega Heroes Mini Tin (Mega Venusaur)",
+    "normalized_name": "Mega Heroes Mini Tin (Mega Venusaur)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/10-10031-135/pokemon-tcg-mega-heroes-mini-tin-mega-venusaur",
+    "price": 9.99
+  },
+  {
+    "type": "3 Booster Pack + Promo Card",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8354_699-17256_01.jpg",
+    "product_name": "Pokémon TCG: Sword & Shield-Lost Origin 3 Booster Packs, Coin & Weavile Promo Card",
+    "normalized_name": "Sword & Shield-Lost Origin 3 Booster Packs, Coin & Weavile Promo Card",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/699-17256/pokemon-tcg-sword-and-shield-lost-origin-3-booster-packs-coin-and-weavile-promo-card",
+    "price": 12.99
+  },
+  {
+    "type": "3 Booster Pack + Promo Card",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9507_699-41307_01.jpg",
+    "product_name": "Pokémon TCG: Scarlet & Violet-Stellar Crown 3 Booster Packs & Latias Promo Card",
+    "normalized_name": "Scarlet & Violet-Stellar Crown 3 Booster Packs & Latias Promo Card",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/699-41307/pokemon-tcg-scarlet-and-violet-stellar-crown-3-booster-packs-and-latias-promo-card",
+    "price": 13.99
+  },
+  {
+    "type": "World Championships Deck",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10010/P10414_100-10169_01.jpg",
+    "product_name": "2024 Pokémon World Championships Deck (Fernando Cifuentes, Crushing Thorn)",
+    "normalized_name": "2024 Pokémon World Championships Deck (Fernando Cifuentes, Crushing Thorn)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/100-10169/2024-pokemon-world-championships-deck-fernando-cifuentes-crushing-thorn",
+    "price": 19.99
+  },
+  {
+    "type": "Mini Tin",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10014/P10425_10-10044-127_01.jpg",
+    "product_name": "Pokémon TCG: Unova Mini Tin (Garbodor & Amoonguss)",
+    "normalized_name": "Unova Mini Tin (Garbodor & Amoonguss)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/10-10044-127/pokemon-tcg-unova-mini-tin-garbodor-and-amoonguss",
+    "price": 9.99
+  },
+  {
+    "type": "Mini Tin",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10005/P10408_10-10117-103_01.jpg",
+    "product_name": "Pokémon TCG: Scarlet & Violet-Prismatic Evolutions Mini Tin (Vaporeon)",
+    "normalized_name": "Scarlet & Violet-Prismatic Evolutions Mini Tin (Vaporeon)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/10-10117-103/pokemon-tcg-scarlet-and-violet-prismatic-evolutions-mini-tin-vaporeon",
+    "price": 9.99
+  },
+  {
+    "type": "Collection Box",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8784_699-17283_01.jpg",
+    "product_name": "Pokémon TCG: Crown Zenith Collection (Regieleki V)",
+    "normalized_name": "Crown Zenith Collection (Regieleki V)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/699-17283/pokemon-tcg-crown-zenith-collection-regieleki-v",
+    "price": 19.99
+  },
+  {
+    "type": "Booster Pack",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9505_189-41249_01.jpg",
+    "product_name": "Pokémon TCG: Scarlet & Violet-Twilight Masquerade Sleeved Booster Pack (10 Cards)",
+    "normalized_name": "Scarlet & Violet-Twilight Masquerade Sleeved Booster Pack (10 Cards)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/189-41249/pokemon-tcg-scarlet-and-violet-twilight-masquerade-sleeved-booster-pack-10-cards",
+    "price": 4.49
+  },
+  {
+    "type": "Ball Tin",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8072_699-17192_01.jpg",
+    "mpn": "699-17192",
+    "product_name": "Pokémon TCG: Pokémon GO Great Ball Tin",
+    "normalized_name": "Pokémon GO Great Ball Tin",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/699-17192/pokemon-tcg-pokemon-go-great-ball-tin",
+    "price": 12.99
+  },
+  {
+    "type": "Booster Pack",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10001/P8908_184-85325_01.jpg",
+    "product_name": "Pokémon TCG: Scarlet & Violet Sleeved Booster Pack (10 Cards)",
+    "normalized_name": "Scarlet & Violet Sleeved Booster Pack (10 Cards)",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/184-85325/pokemon-tcg-scarlet-and-violet-sleeved-booster-pack-10-cards",
+    "price": 4.49
+  },
+  {
+    "type": "Build & Battle Box",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9507_190-85927_01.jpg",
+    "product_name": "Pokémon TCG: Scarlet & Violet-Stellar Crown Build & Battle Box",
+    "normalized_name": "Scarlet & Violet-Stellar Crown Build & Battle Box",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/190-85927/pokemon-tcg-scarlet-and-violet-stellar-crown-build-and-battle-box",
+    "price": 21.99
+  },
+  {
+    "type": "Mini Portfolio + Booster Pack",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8153_181-85036_01.jpg",
+    "product_name": "Pokémon TCG: Sword & Shield-Astral Radiance Mini Portfolio & Booster Pack",
+    "normalized_name": "Sword & Shield-Astral Radiance Mini Portfolio & Booster Pack",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/181-85036/pokemon-tcg-sword-and-shield-astral-radiance-mini-portfolio-and-booster-pack",
+    "price": 4.99
+  },
+  {
+    "type": "Build & Battle Box",
+    "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9504_188-85661_01.jpg",
+    "product_name": "Pokémon TCG: Scarlet & Violet-Temporal Forces Build & Battle Box",
+    "normalized_name": "Scarlet & Violet-Temporal Forces Build & Battle Box",
+    "currency": "USD",
+    "product_url": "https://www.pokemoncenter.com/product/188-85661/pokemon-tcg-scarlet-and-violet-temporal-forces-build-and-battle-box",
+    "price": 21.99
+  }
+]

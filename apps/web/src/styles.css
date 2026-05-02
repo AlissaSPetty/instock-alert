@@ -1,0 +1,342 @@
+:root {
+  color-scheme: light;
+  --color-text: #172033;
+  --color-text-muted: #5c6578;
+  --color-bg: #f5f7fb;
+  --color-card: #ffffff;
+  --color-border: #e1e6f0;
+  --color-border-input: #cbd3e1;
+  --color-shadow: rgb(23 32 51 / 8%);
+  --color-primary: #2454d6;
+  --color-primary-hover: #1c45b8;
+  --color-notice-bg: #eef3ff;
+  --color-image-bg: #f5f7fb;
+  --color-link: #2454d6;
+  --color-secondary-bg: #eef3ff;
+  --color-secondary-text: #2454d6;
+  --color-code-bg: rgb(23 32 51 / 8%);
+  --color-button-text: #ffffff;
+  --color-danger: #d92d20;
+  --color-danger-hover: #c2271b;
+  --color-price-good-bg: #dcfce7;
+  --color-price-good-text: #166534;
+  --color-price-watch-bg: #fef3c7;
+  --color-price-watch-text: #92400e;
+  --color-price-high-bg: #fee2e2;
+  --color-price-high-text: #991b1b;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-text: #e8ecf4;
+  --color-text-muted: #9aa5b8;
+  --color-bg: #0f1419;
+  --color-card: #1a2130;
+  --color-border: #2a3444;
+  --color-border-input: #3d4a5c;
+  --color-shadow: rgb(0 0 0 / 35%);
+  --color-primary: #5b8aff;
+  --color-primary-hover: #7aa3ff;
+  --color-notice-bg: #1e2a3d;
+  --color-image-bg: #131a24;
+  --color-link: #8babff;
+  --color-secondary-bg: #252f3f;
+  --color-secondary-text: #9db4ff;
+  --color-code-bg: rgb(255 255 255 / 12%);
+  --color-danger: #f05449;
+  --color-danger-hover: #ff6b60;
+  --color-price-good-bg: #16351f;
+  --color-price-good-text: #86efac;
+  --color-price-watch-bg: #3a2f12;
+  --color-price-watch-text: #facc15;
+  --color-price-high-bg: #3f1d1d;
+  --color-price-high-text: #fca5a5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: var(--color-button-text);
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+fieldset {
+  border: 1px solid var(--color-border-input);
+  border-radius: 12px;
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 1rem;
+}
+
+legend {
+  font-weight: 700;
+}
+
+input,
+select {
+  border: 1px solid var(--color-border-input);
+  border-radius: 10px;
+  padding: 0.75rem;
+  width: 100%;
+  background: var(--color-card);
+  color: var(--color-text);
+}
+
+label {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 700;
+}
+
+code {
+  background: var(--color-code-bg);
+  border-radius: 6px;
+  font-size: 0.9em;
+  padding: 0.15em 0.4em;
+}
+
+.shell {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 2rem;
+}
+
+.auth {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+}
+
+.card,
+.item-card,
+.suggestion {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px var(--color-shadow);
+  padding: 1.5rem;
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.row {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.actions,
+.item-actions,
+.input-action {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.secondary {
+  background: var(--color-secondary-bg);
+  color: var(--color-secondary-text);
+}
+
+.secondary:hover:not(:disabled),
+.secondary:focus-visible:not(:disabled) {
+  filter: brightness(0.97);
+}
+
+:root[data-theme="dark"] .secondary:hover:not(:disabled),
+:root[data-theme="dark"] .secondary:focus-visible:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.theme-toggle {
+  white-space: nowrap;
+}
+
+.danger {
+  background: var(--color-danger);
+  color: var(--color-button-text);
+}
+
+.danger:hover:not(:disabled),
+.danger:focus-visible:not(:disabled) {
+  background: var(--color-danger-hover);
+}
+
+.radio {
+  align-items: center;
+  display: flex;
+  font-weight: 600;
+}
+
+.radio input {
+  width: auto;
+}
+
+.topbar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.topbar p {
+  color: var(--color-text-muted);
+  margin: 0.35rem 0 0;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.item-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.item-actions {
+  align-items: stretch;
+}
+
+.item-actions button {
+  flex: 1;
+}
+
+.item-link {
+  color: inherit;
+  display: grid;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.item-link:hover h3,
+.item-link:focus h3 {
+  color: var(--color-link);
+  text-decoration: underline;
+}
+
+.item-image {
+  aspect-ratio: 1;
+  background: var(--color-image-bg);
+  border-radius: 14px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.price-pill {
+  border-radius: 999px;
+  display: inline-block;
+  font-weight: 800;
+  padding: 0.15rem 0.45rem;
+}
+
+.price-good {
+  background: var(--color-price-good-bg);
+  color: var(--color-price-good-text);
+}
+
+.price-watch {
+  background: var(--color-price-watch-bg);
+  color: var(--color-price-watch-text);
+}
+
+.price-high {
+  background: var(--color-price-high-bg);
+  color: var(--color-price-high-text);
+}
+
+.price-overage {
+  color: var(--color-text-muted);
+  font-size: 0.95em;
+}
+
+.notice {
+  background: var(--color-notice-bg);
+  border-radius: 10px;
+  padding: 0.75rem;
+}
+
+.link {
+  background: transparent;
+  color: var(--color-link);
+  padding-left: 0;
+}
+
+.inline-link {
+  display: inline;
+  font-weight: 700;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.suggestions {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.suggestion {
+  align-items: center;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr auto;
+}
+
+.suggestion small {
+  color: var(--color-text-muted);
+}
+
+.product-candidate {
+  grid-template-columns: auto 1fr auto;
+}
+
+.product-candidate img {
+  border-radius: 12px;
+  height: 84px;
+  object-fit: cover;
+  width: 84px;
+}
+
+@media (max-width: 720px) {
+  .row,
+  .item-actions,
+  .topbar,
+  .suggestion,
+  .product-candidate {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
