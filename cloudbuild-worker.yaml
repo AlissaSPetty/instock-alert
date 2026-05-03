@@ -9,3 +9,5 @@ steps:
       - .
 images:
   - us-central1-docker.pkg.dev/restock-alerts-495003/pricechecker/worker:latest
+options:
+  logging: CLOUD_LOGGING_ONLY
