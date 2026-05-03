@@ -1,0 +1,3 @@
+[build]
+command = "npm run build --workspace @pricechecker/web"
+publish = "apps/web/dist"
