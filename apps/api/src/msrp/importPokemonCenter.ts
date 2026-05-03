@@ -4,8 +4,8 @@ import {
   extractPokemonCenterCatalogMsrpPrices,
   scrapePokemonCenterTcgMsrpPrices,
   type MsrpPriceCandidate,
-} from "./pokemonCenter";
-import { supabaseService } from "../supabase";
+} from "./pokemonCenter.js";
+import { supabaseService } from "../supabase.js";
 
 const input = process.argv[2] ?? POKEMON_CENTER_TCG_URL;
 const dryRun = process.argv.includes("--dry-run");

@@ -13,13 +13,13 @@ import {
   type ProfileSettings,
   type StockCheckTarget,
 } from "@pricechecker/shared";
-import { requireApproved, requireUser, type AuthenticatedRequest } from "./auth";
-import { captureStockRequests } from "./capture";
-import { inspectProductUrl } from "./inspect";
-import { findClosestMsrpPrice, type MsrpPriceRow } from "./msrp/matching";
-import { verifyWebsiteAndItem } from "./preflight";
-import { getBlockedSite } from "./siteCapabilities";
-import { supabaseService } from "./supabase";
+import { requireApproved, requireUser, type AuthenticatedRequest } from "./auth.js";
+import { captureStockRequests } from "./capture.js";
+import { inspectProductUrl } from "./inspect.js";
+import { findClosestMsrpPrice, type MsrpPriceRow } from "./msrp/matching.js";
+import { verifyWebsiteAndItem } from "./preflight.js";
+import { getBlockedSite } from "./siteCapabilities.js";
+import { supabaseService } from "./supabase.js";
 
 export const router = Router();
 

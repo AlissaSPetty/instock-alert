@@ -10,8 +10,12 @@ const envSchema = z.object({
   SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
   APPROVED_ROLE: z.string().default(APPROVED_ROLE),
   SERPAPI_API_KEY: z.string().optional(),
-  API_PORT: z.coerce.number().default(4000),
+  PORT: z.coerce.number().optional(),
+  API_PORT: z.coerce.number().optional(),
   WEB_ORIGIN: z.string().default("http://localhost:5173"),
-});
+}).transform((env) => ({
+  ...env,
+  API_PORT: env.API_PORT ?? env.PORT ?? 4000,
+}));
 
 export const config = envSchema.parse(process.env);

@@ -1,8 +1,8 @@
 import type { NextFunction, Request, Response } from "express";
 import type { User } from "@supabase/supabase-js";
 import { hasApprovedRole } from "@pricechecker/shared";
-import { config } from "./config";
-import { supabaseAnon } from "./supabase";
+import { config } from "./config.js";
+import { supabaseAnon } from "./supabase.js";
 
 export interface AuthenticatedRequest extends Request {
   user: User;

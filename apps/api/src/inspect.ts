@@ -1,6 +1,6 @@
 import { normalizeHost, type InspectUrlResult, type ProductCandidate } from "@pricechecker/shared";
 import { chromium } from "playwright";
-import { getBlockedSite } from "./siteCapabilities";
+import { getBlockedSite } from "./siteCapabilities.js";
 
 const MAX_BODY_CHARS = 500_000;
 const GENERIC_TITLES = [/robot or human/i, /access denied/i, /captcha/i, /just a moment/i];

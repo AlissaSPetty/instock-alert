@@ -5,7 +5,7 @@ import {
   type SearchSuggestion,
 } from "@pricechecker/shared";
 import { chromium } from "playwright";
-import { searchSuggestions } from "./search";
+import { searchSuggestions } from "./search.js";
 
 const MAX_BODY_CHARS = 250_000;
 

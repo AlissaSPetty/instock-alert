@@ -1,5 +1,5 @@
 import type { SearchSuggestion } from "@pricechecker/shared";
-import { config } from "./config";
+import { config } from "./config.js";
 
 interface SerpApiOrganicResult {
   title?: string;

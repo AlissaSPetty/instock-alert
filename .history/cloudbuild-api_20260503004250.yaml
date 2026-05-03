@@ -1,0 +1,11 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -f
+      - apps/api/Dockerfile
+      - -t
+      - us-central1-docker.pkg.dev/restock-alerts-495003/pricechecker/api:latest
+      - .
+images:
+  - us-central1-docker.pkg.dev/restock-alerts-495003/pricechecker/api:latest

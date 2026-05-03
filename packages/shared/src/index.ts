@@ -147,4 +147,4 @@ export function nextCheckAt(interval: RefreshInterval, from = new Date()): Date 
   return new Date(from.getTime() + refreshIntervalSeconds[interval] * 1000);
 }
 
-export { detectInStock, fetchStockState, type StockCheckTarget } from "./stockCheck";
+export { detectInStock, fetchStockState, type StockCheckTarget } from "./stockCheck.js";
