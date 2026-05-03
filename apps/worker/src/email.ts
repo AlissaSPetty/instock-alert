@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import { config } from "./config";
+import { config } from "./config.js";
 
 export type SendInventoryEmailResult =
   | { kind: "sent"; providerId: string }

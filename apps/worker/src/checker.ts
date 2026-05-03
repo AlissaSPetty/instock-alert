@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { fetchStockState, type StockCheckTarget } from "@pricechecker/shared";
-import { config } from "./config";
-import { sendInventoryAlertEmail } from "./email";
+import { config } from "./config.js";
+import { sendInventoryAlertEmail } from "./email.js";
 
 export interface ScrapeTarget extends StockCheckTarget {
   id: string;

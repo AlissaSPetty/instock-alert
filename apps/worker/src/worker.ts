@@ -1,7 +1,12 @@
-import { config } from "./config";
-import { runWorkerBatch } from "./checker";
+import { config } from "./config.js";
+import { runWorkerBatch } from "./checker.js";
 
 async function loop() {
+  if (config.WORKER_RUN_ONCE) {
+    await runWorkerBatch();
+    return;
+  }
+
   while (true) {
     try {
       await runWorkerBatch();

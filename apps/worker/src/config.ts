@@ -27,6 +27,7 @@ const envSchema = z
     SUPABASE_SERVICE_ROLE_KEY: isTest
       ? z.string().min(1).default("test-service-role-key")
       : z.string().min(1),
+    WORKER_RUN_ONCE: z.preprocess(booleanFromEnv, z.boolean()).default(false),
     WORKER_POLL_MS: z.coerce.number().default(5000),
     WORKER_BATCH_SIZE: z.coerce.number().default(10),
     EMAIL_NOTIFICATIONS_ENABLED: z.preprocess(booleanFromEnv, z.boolean()).default(false),
