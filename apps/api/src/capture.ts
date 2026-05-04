@@ -37,6 +37,7 @@ const STOCK_TERMS = [
 ];
 
 const STOCK_ENDPOINT_TERMS = ["availability", "fulfillment", "inventory", "pdp", "product"];
+const PAGE_FALLBACK_MIN_SCORE = 6;
 const TELEMETRY_ENDPOINT_TERMS = [
   "analytics",
   "event",
@@ -58,6 +59,8 @@ export async function captureStockRequests(websiteUrl: string, itemName: string)
     (await existingScraperFolderPath(scrapersRoot, websiteSlug)) ?? path.join("scrapers", websiteSlug);
   const absoluteFolderPath = path.join(process.cwd(), folderPath);
   const capturedRequests: CapturedRequest[] = [];
+  const pendingCaptures: Array<Promise<void>> = [];
+  let pageRequest: CapturedRequest | null = null;
 
   const browser = await chromium.launch({ headless: true });
   try {
@@ -70,24 +73,36 @@ export async function captureStockRequests(websiteUrl: string, itemName: string)
         return;
       }
 
-      const captured = await captureResponse(response, itemName);
-      if (captured) {
-        capturedRequests.push(captured);
-      }
+      const pendingCapture = captureResponse(response, itemName)
+        .then((captured) => {
+          if (captured) {
+            capturedRequests.push(captured);
+          }
+        })
+        .catch(() => undefined);
+      pendingCaptures.push(pendingCapture);
     });
 
-    await page.goto(websiteUrl, { waitUntil: "domcontentloaded", timeout: 45_000 });
+    const pageResponse = await page.goto(websiteUrl, { waitUntil: "domcontentloaded", timeout: 45_000 });
     await page.waitForLoadState("networkidle", { timeout: 15_000 }).catch(() => undefined);
+    await Promise.allSettled(pendingCaptures);
+    pageRequest = pageResponse ? await captureResponse(pageResponse, itemName) : null;
   } finally {
     await browser.close();
   }
 
   const sortedRequests = capturedRequests.sort((a, b) => b.score - a.score);
-  const selectedRequest = sortedRequests[0];
+  const selectedRequest =
+    sortedRequests.find((request) => request.score > 0) ??
+    (pageRequest && pageRequest.score >= PAGE_FALLBACK_MIN_SCORE ? pageRequest : undefined);
 
   if (!selectedRequest || selectedRequest.score <= 0) {
     throw new Error("No likely stock or inventory network request was captured.");
   }
+
+  const allCapturedRequests = [...sortedRequests, ...(pageRequest ? [pageRequest] : [])].sort(
+    (a, b) => b.score - a.score,
+  );
 
   await mkdir(absoluteFolderPath, { recursive: true });
   await writeScraperDocs(absoluteFolderPath, {
@@ -102,7 +117,7 @@ export async function captureStockRequests(websiteUrl: string, itemName: string)
     itemSlug,
     folderPath,
     selectedRequest,
-    capturedRequests: sortedRequests,
+    capturedRequests: allCapturedRequests,
   };
 }
 

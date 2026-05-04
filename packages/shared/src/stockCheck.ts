@@ -27,7 +27,8 @@ export async function fetchStockState(target: StockCheckTarget) {
   const request = targetStockRequestFallback(target) ?? target.request_pattern;
   const response = await fetchStockRequest(request, target.canonical_url);
   const text = await response.text();
-  const inStock = detectInStock(text);
+  const parsed = parseJson(text);
+  const inStock = targetStockStateFromJson(parsed, target) ?? detectInStock(text);
   let priceSnapshot = inStock ? extractPriceSnapshot(text) : null;
   let priceLookupStatusCode: number | null = null;
 
@@ -82,10 +83,14 @@ export function detectInStock(text: string): boolean {
   }
 
   const normalized = text.toLowerCase().replace(/[_-]+/g, " ");
+  const compact = normalized.replace(/[^a-z0-9]+/g, "");
   return (
-    /\bin stock\b|\"inStock\"\s*:\s*true|\"available\"\s*:\s*true/i.test(text) &&
+    (/\bin stock\b|\"inStock\"\s*:\s*true|\"available\"\s*:\s*true/i.test(text) ||
+      compact.includes("schemaorginstock") ||
+      compact.includes("availabilityinstock")) &&
     !normalized.includes("out of stock") &&
-    !normalized.includes("sold out")
+    !normalized.includes("sold out") &&
+    !compact.includes("schemaorgoutofstock")
   );
 }
 
@@ -164,6 +169,76 @@ function priceSnapshotFromJson(value: unknown, inheritedCurrency: string | null)
   }
 
   return null;
+}
+
+function targetStockStateFromJson(value: unknown | undefined, target: StockCheckTarget): boolean | null {
+  if (target.website_host !== "target.com" || value === undefined) {
+    return null;
+  }
+
+  const context = targetRequestContext(target);
+  if (!context) {
+    return null;
+  }
+
+  const selectedVariation = findTargetVariation(value, context.tcin);
+  return selectedVariation ? targetVariationStockState(selectedVariation) : null;
+}
+
+function findTargetVariation(value: unknown, tcin: string): Record<string, unknown> | null {
+  if (Array.isArray(value)) {
+    for (const entry of value) {
+      const match = findTargetVariation(entry, tcin);
+      if (match) {
+        return match;
+      }
+    }
+
+    return null;
+  }
+
+  if (!isRecord(value)) {
+    return null;
+  }
+
+  if (String(value.tcin ?? "") === tcin && isRecord(value.fulfillment)) {
+    return value;
+  }
+
+  for (const entry of Object.values(value)) {
+    const match = findTargetVariation(entry, tcin);
+    if (match) {
+      return match;
+    }
+  }
+
+  return null;
+}
+
+function targetVariationStockState(variation: Record<string, unknown>): boolean | null {
+  const fulfillment = variation.fulfillment;
+  if (!isRecord(fulfillment)) {
+    return null;
+  }
+
+  if (fulfillment.is_sold_out === true) {
+    return false;
+  }
+
+  const availabilityFields = [
+    "is_shipping_available",
+    "is_shipping_loyalty_available",
+    "is_scheduled_delivery_available",
+    "is_primary_store_available",
+    "is_backup_store_available",
+    "is_digital_options_available",
+  ];
+
+  if (availabilityFields.some((field) => fulfillment[field] === true)) {
+    return true;
+  }
+
+  return availabilityFields.some((field) => fulfillment[field] === false) ? false : null;
 }
 
 function currencyFromRecord(value: Record<string, unknown>): string | null {
@@ -340,7 +415,10 @@ function targetRequestContext(target: StockCheckTarget):
   | null {
   const request = target.request_pattern;
   const source = `${request.url ?? ""}\n${request.postData ?? ""}`;
-  const tcin = target.canonical_url.match(/\/A-(\d+)/i)?.[1] ?? extractTargetField(source, "tcin");
+  const tcin =
+    extractTargetField(target.canonical_url, "preselect") ??
+    target.canonical_url.match(/\/A-(\d+)/i)?.[1] ??
+    extractTargetField(source, "tcin");
   if (!tcin) {
     return null;
   }

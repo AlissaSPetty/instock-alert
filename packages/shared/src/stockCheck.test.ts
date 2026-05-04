@@ -85,6 +85,20 @@ describe("fetchStockState", () => {
     ).toBe(true);
   });
 
+  it("detects schema.org availability in product page HTML", () => {
+    expect(
+      detectInStock(`
+        <script type="application/ld+json">
+          {
+            "@type": "Product",
+            "name": "PlayStation 5 Console",
+            "offers": { "availability": "https://schema.org/InStock" }
+          }
+        </script>
+      `),
+    ).toBe(true);
+  });
+
   it("extracts Target-style price snapshots", () => {
     expect(
       extractPriceSnapshot(
@@ -168,6 +182,64 @@ describe("fetchStockState", () => {
     expect(result.inStock).toBe(true);
     expect(fetchMock).toHaveBeenCalledWith(
       expect.stringContaining("redsky_aggregations/v1/web/product_fulfillment_and_variation_hierarchy_v1"),
+      expect.objectContaining({ method: "GET" }),
+    );
+  });
+
+  it("uses Target preselect TCIN to check the selected size variation", async () => {
+    const fetchMock = vi.fn(
+      async () =>
+        new Response(
+          JSON.stringify({
+            data: {
+              product: {
+                tcin: "95058826",
+                variation_hierarchy: [
+                  {
+                    name: "Size",
+                    value: "XS",
+                    tcin: "94957332",
+                    fulfillment: {
+                      is_shipping_available: true,
+                      is_sold_out: false,
+                    },
+                  },
+                  {
+                    name: "Size",
+                    value: "XL",
+                    tcin: "94957336",
+                    fulfillment: {
+                      is_shipping_available: false,
+                      is_shipping_loyalty_available: false,
+                      is_scheduled_delivery_available: false,
+                      is_primary_store_available: false,
+                      is_backup_store_available: false,
+                      is_digital_options_available: false,
+                      is_sold_out: false,
+                    },
+                  },
+                ],
+              },
+            },
+          }),
+          { status: 200 },
+        ),
+    );
+    vi.stubGlobal("fetch", fetchMock);
+
+    const result = await fetchStockState({
+      canonical_url:
+        "https://www.target.com/p/adult-hooded-sweatshirt-cream-pok-mon-x-target/-/A-95058826?preselect=94957336#lnk=sametab",
+      website_host: "target.com",
+      request_pattern: {
+        method: "GET",
+        url: "https://redsky.target.com/redsky_aggregations/v1/web/product_fulfillment_and_variation_hierarchy_v1?store_id=1394&zip=30040&state=GA&tcin=95058826",
+      },
+    });
+
+    expect(result.inStock).toBe(false);
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringContaining("tcin=94957336"),
       expect.objectContaining({ method: "GET" }),
     );
   });

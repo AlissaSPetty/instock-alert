@@ -173,25 +173,16 @@ router.post("/track", requireUser, requireApproved, async (req, res, next) => {
       refreshSeconds: refreshIntervalSeconds[input.refreshInterval],
     });
 
-    await runImmediateStockCheckForTarget(target.id);
-
     await recordUsage(user.id, "tracking_created", {
       targetId: target.id,
       trackedItemId: trackedItem.id,
       websiteHost: target.website_host,
     });
 
-    const { data: latestTarget, error: latestTargetError } = await supabaseService
-      .from("scrape_targets")
-      .select("*")
-      .eq("id", target.id)
-      .single();
-
-    if (latestTargetError) {
-      throw latestTargetError;
-    }
-
-    res.status(201).json({ trackedItem, target: latestTarget ?? target });
+    res.status(201).json({ trackedItem, target });
+    void runImmediateStockCheckForTarget(target.id).catch((error) => {
+      console.error("Immediate stock check failed after tracker creation", error);
+    });
   } catch (error) {
     next(error);
   }

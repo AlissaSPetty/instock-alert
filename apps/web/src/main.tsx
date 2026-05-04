@@ -188,6 +188,15 @@ function Dashboard({
     apiGet<{ items: DashboardApiItem[] }>("/dashboard").then((data) => setItems(data.items)).catch(console.error);
   }, [refreshKey]);
 
+  useEffect(() => {
+    if (!items.some((item) => item.is_active && item.scrape_targets?.last_checked_at === null)) {
+      return;
+    }
+
+    const interval = window.setInterval(() => setRefreshKey((value) => value + 1), 15_000);
+    return () => window.clearInterval(interval);
+  }, [items]);
+
   async function toggleItem(id: string, isActive: boolean) {
     await apiPatch(`/tracked-items/${id}`, { isActive: !isActive });
     setRefreshKey((value) => value + 1);
@@ -249,6 +258,7 @@ function Dashboard({
             const priceStatus =
               target?.last_known_in_stock && price !== null && msrp !== null ? getPriceStatus(price, msrp) : null;
             const hasCurrentPrice = target?.last_known_in_stock && price !== null;
+            const isPendingFirstCheck = item.is_active && target?.last_checked_at === null;
             return (
               <article className="item-card" key={item.id}>
                 <a className="item-link" href={target?.canonical_url}>
@@ -257,7 +267,8 @@ function Dashboard({
                     <h3>{target?.item_name}</h3>
                     <p>{target?.website_name ?? target?.website_host}</p>
                     <p>Refresh: {item.refresh_interval}</p>
-                    <p>Status: {target?.last_known_in_stock ? "In stock" : "Not in stock or unknown"}</p>
+                    <p>Status: {stockStatusLabel(target?.last_known_in_stock, isPendingFirstCheck)}</p>
+                    {isPendingFirstCheck ? <p>First stock check pending. This updates automatically.</p> : null}
                     {msrp !== null ? <p>MSRP: {formatMoney(msrp, target?.last_known_currency)}</p> : null}
                     {hasCurrentPrice ? (
                       <p>
@@ -305,6 +316,14 @@ function formatMoney(value: number, currency?: string | null): string {
   }
 }
 
+function stockStatusLabel(inStock: boolean | null | undefined, isPendingFirstCheck: boolean): string {
+  if (isPendingFirstCheck) {
+    return "Checking now...";
+  }
+
+  return inStock ? "In stock" : "Not in stock or unknown";
+}
+
 function getPriceStatus(price: number, msrp: number): { className: string; label: string } {
   const overMsrpPercent = Math.max(0, ((price - msrp) / msrp) * 100);
 
@@ -341,7 +360,7 @@ function TrackingForm({
   const [settings, setSettings] = useState<ProfileSettings | null>(null);
   const [alertPreference, setAlertPreference] = useState<NotificationChannel>("email");
   const [message, setMessage] = useState("");
-  const [busy, setBusy] = useState(false);
+  const [busyState, setBusyState] = useState<"idle" | "inspecting" | "tracking">("idle");
   const [settingsLoading, setSettingsLoading] = useState(true);
 
   useEffect(() => {
@@ -368,7 +387,7 @@ function TrackingForm({
     setMessage("");
     setInspection(null);
 
-    setBusy(true);
+    setBusyState("inspecting");
     try {
       const [{ profile }, result] = await Promise.all([
         getSettings(),
@@ -387,7 +406,7 @@ function TrackingForm({
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Unable to inspect this URL.");
     } finally {
-      setBusy(false);
+      setBusyState("idle");
     }
   }
 
@@ -405,8 +424,8 @@ function TrackingForm({
       ...(candidate.image ? { imageUrl: candidate.image } : {}),
     };
 
-    setBusy(true);
-    setMessage("");
+    setBusyState("tracking");
+    setMessage("Creating tracker and starting the first stock check. This can take up to a minute.");
 
     try {
       const parsed = createTrackingRequestSchema.safeParse(trackingRequest);
@@ -417,16 +436,17 @@ function TrackingForm({
 
       await createTracking(parsed.data);
       setInspection(null);
-      setMessage("Tracking request created.");
+      setMessage("Tracking request created. First stock check is running in the background.");
       setForm(emptyForm);
       onCreated();
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Unable to create tracking request.");
     } finally {
-      setBusy(false);
+      setBusyState("idle");
     }
   }
 
+  const busy = busyState !== "idle";
   const formDisabled = busy || settingsLoading || !hasAnyAlertMethod(settings);
 
   return (
@@ -466,7 +486,7 @@ function TrackingForm({
           </select>
         </label>
         <button type="submit" disabled={formDisabled}>
-          {busy ? "Inspecting..." : "Find products on this page"}
+          {busyState === "inspecting" ? "Inspecting..." : "Find products on this page"}
         </button>
       </form>
       {message ? <p className="notice">{message}</p> : null}
@@ -493,7 +513,7 @@ function TrackingForm({
                 <small>{candidate.url}</small>
               </div>
               <button type="button" onClick={() => trackCandidate(candidate)} disabled={formDisabled}>
-                Track this item
+                {busyState === "tracking" ? "Creating tracker..." : "Track this item"}
               </button>
             </article>
           ))}

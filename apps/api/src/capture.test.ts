@@ -52,4 +52,25 @@ describe("scoreRequest", () => {
     expect(score).toBeGreaterThan(10);
   });
 
+  it("scores product pages with embedded availability metadata", () => {
+    const score = scoreCapturedRequest(
+      {
+        url: "https://example.com/products/playstation-5-console",
+        responseSample: `
+          <script type="application/ld+json">
+            {
+              "@type": "Product",
+              "name": "PlayStation 5 Console",
+              "offers": { "availability": "https://schema.org/InStock" }
+            }
+          </script>
+        `,
+        status: 200,
+      },
+      "PlayStation 5 Console",
+    );
+
+    expect(score).toBeGreaterThan(5);
+  });
+
 });
